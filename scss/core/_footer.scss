@@ -1,0 +1,29 @@
+// css footer
+footer {
+    background-color: #050505;
+    padding: 20px 0;
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .copy,
+        .backtotop {
+            @include text(12px, pr, normal, #b0b0b0, initial);
+            letter-spacing: 0.6px;
+        }
+        .logoft {
+            max-width: 145px;
+            position: absolute;
+            left: 50%;
+            @include transform(translateX(-50%));
+        }
+        @include xs {
+            flex-direction: column;
+            .logoft {
+                position: initial;
+                @include transform(translateX(0));
+                margin: 15px auto;
+            }
+        }
+    }
+}

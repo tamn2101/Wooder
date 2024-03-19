@@ -1,0 +1,40 @@
+// css navigator (Menu)
+@include sm {
+    header {
+        background-color: $black-cl;
+        .container-fluid {
+            .menu {
+                // display: none;
+                -webkit-clip-path: inset(0 0 100% 0); //vén màn
+                clip-path: inset(0 0 100% 0);
+                flex-direction: column;
+                justify-content: center;
+                height: calc(100vh - var(--height-header));
+                width: 100vw;
+                background-color: #161616;
+                position: fixed;
+                top: var(--height-header);
+                left: 0;
+                @include transform(translate(0, 0));
+                z-index: 90;
+                @include transition($t);
+                li {
+                    height: auto;
+                    a {
+                        padding: 10px 0;
+                    }
+                }
+                &.active {
+                    // display: flex;
+                    -webkit-clip-path: inset(0 0 0 0);
+                    clip-path: inset(0 0 0 0);
+                }
+            }
+            .right {
+                .btnmenu {
+                    display: block;
+                }
+            }
+        }
+    }
+}

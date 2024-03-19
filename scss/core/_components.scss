@@ -1,0 +1,246 @@
+// css img, button, heading, title, input, elements, components...
+img {
+    max-width: 100%;
+    height: auto;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    &.--center {
+        margin: 0 auto;
+        display: block;
+    }
+}
+a {
+    text-decoration: none;
+}
+
+// colors (tuỳ chỉnh)
+.--white-cl {
+    color: $white-cl;
+}
+.--black-cl {
+    color: $black-cl;
+}
+
+// css article (nội dung chi tiết bài viết)
+article {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        // font-family: ib; // font bold
+        display: block;
+    }
+    h1 {
+        font-size: var(--h1-fs);
+        line-height: var(--h1-lh);
+        margin: 0 0 0.67rem 0;
+    }
+    h2 {
+        font-size: var(--h2-fs);
+        line-height: var(--h2-lh);
+        margin: 0 0 0.75rem 0;
+    }
+    h3 {
+        font-size: var(--h3-fs);
+        line-height: var(--h3-lh);
+        margin: 0 0 0.83rem 0;
+    }
+    h4 {
+        font-size: var(--h4-fs);
+        line-height: var(--h4-lh);
+        margin: 0 0 1.12rem 0;
+    }
+    h5 {
+        font-size: var(--h5-fs);
+        line-height: var(--h5-lh);
+        margin: 0 0 1.5rem 0;
+    }
+    h6 {
+        font-size: 0.67rem;
+        margin: 0 0 1.67rem 0;
+    }
+
+    p {
+        margin: 0 0 1.12rem 0;
+    }
+    strong {
+        // font-family: ib; // font bold
+    }
+    ol,
+    ul {
+        list-style: initial;
+        padding-left: 18px;
+    }
+    img {
+        display: inline-block;
+        height: auto;
+        overflow: hidden;
+        border-radius: 10px;
+        margin: 25px auto;
+    }
+    .video {
+        width: 100%;
+        height: 0;
+        padding-bottom: 56.25%;
+        position: relative;
+        margin: 25px auto;
+        iframe,
+        video {
+            position: absolute;
+            @include size(100%);
+            top: 0;
+            left: 0;
+        }
+    }
+    @include xs {
+        img {
+            margin: 20px auto;
+        }
+    }
+}
+
+// .heading {
+//     font-family: ib;
+//     &.--h1 {
+//         font-size: var(--h1-fs);
+//         line-height: var(--h1-lh);
+//     }
+//     &.--h2 {
+//         font-size: var(--h2-fs);
+//         line-height: var(--h2-lh);
+//     }
+// }
+
+//btn
+.btn {
+    // display: inline-block;
+    padding: 12px 45px;
+    border: 2px solid $white-cl;
+    box-sizing: border-box;
+    @include transition($t);
+    span {
+        @include text(var(--body14-fs), pb, normal, $white-cl, uppercase);
+        letter-spacing: 2.8px;
+    }
+    &:hover {
+        background-color: $yellow-cl;
+    }
+}
+
+.btnslider {
+    span {
+        margin-right: 10px;
+    }
+
+    @include xs {
+        padding: 12px 30px;
+    }
+    @include xxs {
+        padding: 10px 20px;
+    }
+}
+
+.textbox {
+    padding-right: 70px;
+    .titlemain {
+        @include text(var(--h3-fs), pb, normal, $black-cl, uppercase);
+        letter-spacing: 2.8px;
+        display: flex;
+        align-items: center;
+        &::before {
+            content: "";
+            width: 80px;
+            height: 1px;
+            background: #555;
+            margin-right: 15px;
+            @include sm {
+                display: none;
+            }
+        }
+    }
+    .des {
+        letter-spacing: 0.4px;
+        @include text(var(--body16-fs), pr, var(--body16-lh), $text-cl, none);
+        margin-left: 95px;
+        margin-top: 10px;
+    }
+    &.--textcenter {
+        text-align: center;
+        padding-right: 0px;
+        .titlemain {
+            flex-direction: column-reverse;
+            &::before {
+                width: 38px;
+                height: 3px;
+                background: $yellow-cl;
+                margin-right: 0;
+                margin-top: 7px;
+                @include sm {
+                    display: block;
+                }
+            }
+        }
+        .des {
+            margin-left: 0px;
+            margin-top: 0px;
+            padding: 20px 200px;
+            @include sm {
+                padding: 20px 50px;
+            }
+            @include xs {
+                padding: 20px 0px;
+            }
+        }
+    }
+}
+.textbox.--noline {
+    .titlemain {
+        color: $white-cl;
+        &::before {
+            display: none;
+        }
+    }
+    .des {
+        color: $white-cl;
+        margin-left: initial;
+        padding-right: 450px;
+        @include md {
+            padding-right: 400px;
+        }
+        @include sm {
+            padding-right: 200px;
+        }
+        @include xs {
+            padding-right: 0px;
+        }
+    }
+}
+.btnmore {
+    // @include transition($t);
+    display: inline-block;
+    position: relative;
+    margin-left: 95px;
+    margin-top: 30px;
+    span {
+        @include text(var(--body14-fs), pb, normal, $black-cl, uppercase);
+        letter-spacing: 2.8px;
+    }
+    &::before {
+        content: "";
+        width: 35px;
+        height: 1px;
+        background: $yellow-cl;
+        display: block;
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+    }
+    @include xs {
+        margin-top: 15px;
+    }
+}
